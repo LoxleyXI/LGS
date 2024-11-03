@@ -28,7 +28,7 @@ lgs.add(m, {
     {
         -- (Required)
         zone = "Beadeaux",
-        type = lgs.MINING,
+        type = xi.helmType.MINING,
 
         -- (Optional)
         -- Character variable to unlock gathering in the area

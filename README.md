@@ -22,7 +22,7 @@ lgs.add(m, {
     info =
     {
         zone = "Beadeaux",
-        type = lgs.MINING,
+        type = xi.helmType.MINING,
     },
 
     items =
@@ -78,7 +78,7 @@ You can define conditional items by simply including the `conditional` section i
 ```
 
 ### Handling Results
-You can define a custom function that will be called when the player obtains a result. This can be used for example, to grant skill ups in a custom skill system or completions of a custom quest objective. helmType returns `"Harvesting"`, `"Logging"`, `"Excavation"` or `"Mining"`.
+You can define a custom function that will be called when the player obtains a result. This can be used for example, to grant skill ups in a custom skill system or completions of a custom quest objective. helmType is an enum corresponding to [xi.helmType](https://github.com/LandSandBoat/server/blob/base/scripts/enum/helm_type.lua).
 ```lua
 onResult = function(player, helmType, itemID)
     -- Your code here
@@ -123,12 +123,6 @@ info =
 }
 ```
 
-## Special Thanks
-A special thanks goes out to...
-* The [LandSandBoat](https://github.com/LandSandBoat/server) team for maintaining an amazing piece of software that we enjoy every day
-* [Carver](https://github.com/catseyexi) for running [CatsEyeXI](https://www.catseyexi.com/) and supporting my crazy ideas
-* The [Crystal Warrior](https://www.catseyexi.com/cw) community over at [CatsEyeXI](https://www.catseyexi.com/) for keeping the game fresh and fun!
-
 ## History
 I've developed a few iterations of this module and there are well over a dozen new areas actively being used on live servers today, so you can rest assured that this system is well tried and tested.
 
@@ -139,4 +133,5 @@ I've developed a few iterations of this module and there are well over a dozen n
 
 ## Final Note
 If you found this module useful for your server, please provide a link back to it!
-- Loxley
+
+~ Loxley ~

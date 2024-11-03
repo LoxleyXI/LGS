@@ -33,12 +33,6 @@ LGS.VERY_RARE   =   10 --   1%
 LGS.SUPER_RARE  =    5 -- 0.5%
 LGS.ULTRA_RARE  =    1 -- 0.1%
 
--- HELM Types
-LGS.HARVESTING = 1
-LGS.EXCAVATION = 2
-LGS.LOGGING    = 3
-LGS.MINING     = 4
-
 local settings =
 {
     dialog =
@@ -62,7 +56,7 @@ local settings =
 
 local types =
 {
-    [LGS.HARVESTING] =
+    [xi.helmType.HARVESTING] =
     {
         name         = "Harvesting",
         point        = "Harvest. Point",
@@ -79,7 +73,7 @@ local types =
         breaks       = "Your %s breaks!",
     },
 
-    [LGS.EXCAVATION] =
+    [xi.helmType.EXCAVATION] =
     {
         name         = "Excavation",
         point        = "Excav. Point",
@@ -96,7 +90,7 @@ local types =
         breaks       = "Your %s breaks!",
     },
 
-    [LGS.LOGGING] =
+    [xi.helmType.LOGGING] =
     {
         name         = "Logging",
         point        = "Logging Point",
@@ -113,7 +107,7 @@ local types =
         breaks       = "Your %s breaks!",
     },
 
-    [LGS.MINING] =
+    [xi.helmType.MINING] =
     {
         name         = "Mining",
         point        = "Mining Point",
@@ -221,7 +215,7 @@ local function handleResult(player, item, helmArea)
         player:addItem(item.id)
 
         if helmArea.onResult ~= nil then
-            helmArea.onResult(player, helmType.name, item.id)
+            helmArea.onResult(player, helmArea.info.type, item.id)
         end
 
         return true
@@ -389,6 +383,10 @@ LGS.add = function(sourceModule, helmArea)
                 name = helmArea.items[index][3],
             }
 
+            if helmArea.items[index] == nil then
+                print(fmt("[LGS] An item in {} does not have a valid item ID", helmArea.info.zone))
+            end
+
             -- Perform item name lookup if required
             if helmArea.items[index].name == nil then
                 helmArea.items[index].name = getItemName(helmArea.items[index].id, helmArea.info.zone)
@@ -398,17 +396,25 @@ LGS.add = function(sourceModule, helmArea)
        -- Convert conditional items into a nicely indexed table
         if helmArea.conditional ~= nil then
             for itemID, _ in pairs(helmArea.conditional) do
-                for conditionID, _ in pairs(helmArea.conditional[itemID].replacement) do
+                for conditionID, conditionInfo in pairs(helmArea.conditional[itemID].replacement) do
                     -- If conditionals are as defined pure item IDs, convert it to a table
                     if type(helmArea.conditional[itemID].replacement[conditionID]) == "number" then
                         helmArea.conditional[itemID].replacement[conditionID] = { helmArea.conditional[itemID].replacement[conditionID] }
                     end
 
-                    helmArea.conditional[itemID].replacement[conditionID] =
-                    {
-                        id   = helmArea.conditional[itemID].replacement[conditionID][1],
-                        name = helmArea.conditional[itemID].replacement[conditionID][2],
-                    }
+                    local itemInfo = helmArea.conditional[itemID].replacement[conditionID]
+
+                    if itemInfo.id == nil then
+                        helmArea.conditional[itemID].replacement[conditionID] =
+                        {
+                            id   = itemInfo[1],
+                            name = itemInfo[2],
+                        }
+
+                        if itemInfo[1] == nil then
+                            print(fmt("[LGS] A conditional item in {} does not have a valid item ID {}", helmArea.info.zone, conditionInfo))
+                        end
+                    end
 
                     -- Perform item name lookup if required
                     if helmArea.conditional[itemID].replacement[conditionID].name == nil then
