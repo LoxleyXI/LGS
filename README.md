@@ -3,6 +3,14 @@
 ## Overview
 The Loxley Gathering System (LGS) is a module for the [LandSandBoat](https://github.com/LandSandBoat/server) FFXI server emulator. It allows server operators to easily create their own custom [Gathering (HELM)](https://www.bg-wiki.com/ffxi/Category:Gathering) locations in any game area. The system provides an authentic experience and is actively in use by multiple prominent FFXI server projects.
 
+LGS is a great addition to your server and it allows you to add a large amount of playable content for very little effort!
+
+## Features
+* Authentic animations, appearances and messsages
+* Gathering Points are distributed randomly and move when consumed
+* Automatic handling of HELM settings and modifiers eg. Field/Worker Tunica set
+* Fully configurable system with support for custom extensions, custom modifiers and conditional items
+
 ## Setup
 * `LGS.lua` must be located inside `modules/` but does not need to be loaded by `init.txt`
 * Each new area must include a reference to `LGS.lua`, for example `local lgs = require('modules/lib/LGS')`
@@ -126,10 +134,9 @@ info =
 ## History
 I've developed a few iterations of this module and there are well over a dozen new areas actively being used on live servers today, so you can rest assured that this system is well tried and tested.
 
-* The first version was developed by me for [HorizonXI](https://horizonxi.com/) in 2022
-* The second version was developed by me for [Crystal Warrior](https://www.catseyexi.com/cw) on [CatsEyeXI](https://www.catseyexi.com/) in 2023
-(Where it was also rewritten several times and extended to support many new features)
-* This final version was developed by me in 2024 to give it a permanent home and make it more accessible to the community
+* The [first version](https://horizonffxi.wiki/Category:Harvesting#Beaucedine_Glacier) was developed by me for [HorizonXI](https://horizonxi.com/) in 2022
+* The [second version](https://www.bg-wiki.com/ffxi/CatsEyeXI_Systems/HELM) was developed by me for [Crystal Warrior](https://www.catseyexi.com/cw) on [CatsEyeXI](https://www.catseyexi.com/) in 2023
+* This __definitive version__ was developed by me in 2024 to give the system a permanent home and make it more accessible to the community
 
 ## Final Note
 If you found this module useful for your server, please provide a link back to it!
