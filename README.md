@@ -6,7 +6,7 @@ The Loxley Gathering System (LGS) is a module for the [LandSandBoat](https://git
 LGS is a great addition to your server and it allows you to add a large amount of playable content for very little effort!
 
 ## Features
-* Authentic animations, appearances and messsages
+* Authentic animations, appearances and messages
 * Gathering Points are distributed randomly and move when consumed
 * Automatic handling of HELM settings and modifiers eg. Field/Worker Tunica set
 * Fully configurable system with support for custom extensions, custom modifiers and conditional items
