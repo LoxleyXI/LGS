@@ -5,6 +5,10 @@ The Loxley Gathering System (LGS) is a module for the [LandSandBoat](https://git
 
 LGS is a great addition to your server and it allows you to add a large amount of playable content for very little effort!
 
+If you found this module helpful, please consider kindly supporting my other work and/or starring the repository. Thank you.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/loxleygames)
+
 ## Features
 * Authentic animations, appearances and messages
 * Gathering Points are distributed randomly and move when consumed
