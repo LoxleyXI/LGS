@@ -19,7 +19,8 @@ If you found this module helpful, please consider kindly supporting my other wor
 * `LGS.lua` must be located inside `modules/` but does not need to be loaded by `init.txt`
 * Each new area must include a reference to `LGS.lua`, for example `local lgs = require('modules/lib/LGS')`
 * Initialise your area using `lgs.add()` by following the examples provided in this repository
-* * You can create a list of points by using the `!pos` [command](https://github.com/LandSandBoat/server/blob/base/scripts/commands/pos.lua) in game
+* * Create a list of points by using the `!pos` [command](https://github.com/LandSandBoat/server/blob/base/scripts/commands/pos.lua) in game
+* * Save time by using my [`pos` Ashita Addon](https://github.com/LoxleyXI/ashita-addons) to copy straight to clipboard
 * * Check that your item is included in [LSB's item enums](https://github.com/LandSandBoat/server/blob/base/scripts/enum/item.lua) or use the item ID
 * Ensure `self_emote.cpp` is included in your modules and [clear the CMake cache](https://github.com/LandSandBoat/server/wiki/Module-Guide#cpp-modules) before [rebuilding the C++](https://github.com/LandSandBoat/server/wiki/Quick-Start-Guide) (Required for animations)
 
